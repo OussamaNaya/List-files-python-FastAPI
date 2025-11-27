@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Fichiers Uploadés</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h1 { color: #333; }
+        ul { margin-top: 20px; }
+        li { margin-bottom: 5px; }
+        a { text-decoration: none; color: blue; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Liste des fichiers reçus</h1>
+
+    {% if files %}
+        <ul>
+            {% for file in files %}
+                <li>
+                    <a href="/uploads/{{ file }}" target="_blank">{{ file }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun fichier pour le moment.</p>
+    {% endif %}
+</body>
+</html>
